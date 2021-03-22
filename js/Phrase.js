@@ -3,9 +3,9 @@ class Phrase {
         this.phrase = phrase;
     }
 
+    // create Li-element to every letter and sort out.
     addPhraseToDisplay() {
         let phraseContainer = document.querySelector('#phrase ul');
-        
         
         for(let i = 0; i < this.phrase.length; i++) {
             if(this.phrase[i] === " ") {
@@ -16,15 +16,22 @@ class Phrase {
         }
     }
 
+    // check the passed value is in the Phrase if yes change class from hide to show
     checkLetter(btn){
-        for (const li of document.querySelectorAll('#phrase li')) {
+        for (const li of document.querySelectorAll('#phrase li')) {            
             if (li.textContent.includes(btn)) {
-              console.log(li)
+                this.showMatchedLetters(li);
             } else {
                 // lost health
             }
           }
         
+    }
+
+    // class change.
+    showMatchedLetters(letter) {
+        letter.classList.remove('hide');
+        letter.classList.add('show');
     }
 }
 
@@ -34,3 +41,4 @@ const P1 = new Phrase('azta mindenit neki');
 
 P1.addPhraseToDisplay();
 P1.checkLetter('a');
+// P1.showMatchedLetters(P1.checkLetter('a'));
