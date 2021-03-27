@@ -10,8 +10,12 @@ class Game {
         this.activePhrase = null;
     }
 
+    // hide overlay, choose a random phrase from this.phrase after display it.
     startGame(){
-
+        document.querySelector('#overlay').style.display = 'none';
+        this.activePhrase = this.getRandomPhrase();
+        const newGame = new Phrase(this.activePhrase);
+        newGame.addPhraseToDisplay();
     }
 
     getRandomPhrase() {
@@ -21,5 +25,5 @@ class Game {
 
 const a = new Game();
 
-a.getRandomPhrase();
+a.startGame();
 
