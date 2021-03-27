@@ -35,10 +35,10 @@ class Phrase {
     }
 }
 
-const P1 = new Phrase('azta mindenit neki');
+// const P1 = new Phrase('azta mindenit neki');
 
 
 
-P1.addPhraseToDisplay();
-P1.checkLetter('a');
-// P1.showMatchedLetters(P1.checkLetter('a'));
+// P1.addPhraseToDisplay();
+// P1.checkLetter('a');
+// // P1.showMatchedLetters(P1.checkLetter('a'));
