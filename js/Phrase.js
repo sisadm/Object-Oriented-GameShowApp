@@ -18,14 +18,18 @@ class Phrase {
 
     // check the passed value is in the Phrase if yes change class from hide to show
     checkLetter(btn){
-        for (const li of document.querySelectorAll('#phrase li')) {            
-            if (li.textContent.includes(btn)) {
-                this.showMatchedLetters(li);
-            } else {
-                // lost health
+
+        for(let i = 0; i < this.phrase.length; i++) {
+            if(this.phrase[i] == btn) {
+                this.showMatchedLetters(document.querySelectorAll('#phrase li')[i]);  
             }
-          }
-        
+        }
+
+        // for (const li of document.querySelectorAll('#phrase li')) {
+        //     if(li.textContent == btn){
+        //         this.showMatchedLetters(li);  
+        //     }
+        // }
     }
 
     // class change.
@@ -33,12 +37,9 @@ class Phrase {
         letter.classList.remove('hide');
         letter.classList.add('show');
     }
+
+
+
+
+
 }
-
-// const P1 = new Phrase('azta mindenit neki');
-
-
-
-// P1.addPhraseToDisplay();
-// P1.checkLetter('a');
-// // P1.showMatchedLetters(P1.checkLetter('a'));
