@@ -24,12 +24,6 @@ class Phrase {
                 this.showMatchedLetters(document.querySelectorAll('#phrase li')[i]);  
             }
         }
-
-        // for (const li of document.querySelectorAll('#phrase li')) {
-        //     if(li.textContent == btn){
-        //         this.showMatchedLetters(li);  
-        //     }
-        // }
     }
 
     // class change.

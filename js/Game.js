@@ -24,39 +24,43 @@ class Game {
     }
 
     // buttons interaction with the random Phrase
-    handleInteraction(target){
-        // const phrase = Array.from(document.querySelectorAll('#phrase li'));
-        // const phraseLetters = phrase.map(i => i.textContent); // separete text from the Li
+    handleInteraction(target, input){
         const NewPheaseClass = new Phrase (this.activePhrase);
-        const arrayPhrase = this.activePhrase.split('');
-        const liPhrase = document.querySelectorAll('#phrase li');
-        
-                
-        if(this.activePhrase.includes(target.textContent)) { // if true 
-            target.classList.add('chosen');
-            NewPheaseClass.checkLetter(target.textContent);
-            this.checkForWin()
-        } else {
-            target.classList.add('wrong');
-            this.removeLife()
-        }                
-            
+        const letterLi = document.querySelectorAll('#qwerty button');
         
 
+        if(input == 'keyUp') {
+            if(this.activePhrase.includes(target)) { // if true 
+                for(let btn of letterLi) {
+                    if(btn.textContent == target) {
+                        btn.classList.add('chosen');
+                    }                    
+                }
+                NewPheaseClass.checkLetter(target);
+                this.checkForWin()
+            } else {
+                for(let btn of letterLi) {
+                    if(btn.textContent == target) {
+                        if(!btn.classList.contains('wrong')) {
+                            btn.classList.add('wrong');
+                            this.removeLife()
+                        }
+                    }
+                }
+            } 
+        }
 
-        // qwerty.addEventListener('click', (e) => {
-        //     if(e.target.tagName == 'BUTTON'){
-        //         if(phraseLetters.includes(e.target.textContent)) { // if true 
-        //             e.target.classList.add('chosen');
-        //             NewPheaseClass.checkLetter(e.target.textContent);
-        //             this.checkForWin()
-        //         } else {
-        //             e.target.classList.add('wrong');
-        //             this.removeLife()
-        //         }
-                
-        //     }
-        // })
+        if(input == 'click') {
+            if(this.activePhrase.includes(target.textContent)) { // if true 
+                target.classList.add('chosen');
+                NewPheaseClass.checkLetter(target.textContent);
+                this.checkForWin()
+            } else {
+                target.classList.add('wrong');
+                this.removeLife()
+            } 
+        }               
+
     }
 
     removeLife() {
@@ -89,7 +93,7 @@ class Game {
             overLay.classList.add('loss');
             h1.innerHTML = "Oh no, you lost. Let's try it again."; 
         }
-
+        startBtn.innerHTML = "Restart Game";
         startBtn.classList.add('reset-game');
     }
 }
