@@ -25,13 +25,15 @@ class Game {
 
     // buttons interaction with the random Phrase
     handleInteraction(target, input){
-        const NewPheaseClass = new Phrase (this.activePhrase);
+        const NewPheaseClass = new Phrase (this.activePhrase);  // use Phrase.js -> checkLetter function
         const letterLi = document.querySelectorAll('#qwerty button');
         
 
+        // keyUp part
         if(input == 'keyUp') {
-            if(this.activePhrase.includes(target)) { // if true 
-                for(let btn of letterLi) {
+            if(this.activePhrase.includes(target)) { // if the letter is in phrase
+                // check the which button pushed 
+                for(let btn of letterLi) { 
                     if(btn.textContent == target) {
                         btn.classList.add('chosen');
                     }                    
@@ -41,6 +43,7 @@ class Game {
             } else {
                 for(let btn of letterLi) {
                     if(btn.textContent == target) {
+                        // if push again the same wrong button it is not cost a life
                         if(!btn.classList.contains('wrong')) {
                             btn.classList.add('wrong');
                             this.removeLife()
@@ -50,6 +53,7 @@ class Game {
             } 
         }
 
+        // click part
         if(input == 'click') {
             if(this.activePhrase.includes(target.textContent)) { // if true 
                 target.classList.add('chosen');
@@ -63,6 +67,7 @@ class Game {
 
     }
 
+    // if miss one lose 1 health. (change the img src and +1 for missed)
     removeLife() {
         const hearth = document.querySelectorAll('#scoreboard li img');
         if(this.missed == 4) {
@@ -73,6 +78,7 @@ class Game {
         }
     }
 
+    // check the phrase letter numbers is equal with correct letters
     checkForWin(){
         const letterClass = document.querySelectorAll('.letter').length;
         const showClass = document.querySelectorAll('.show').length;
@@ -81,6 +87,7 @@ class Game {
         }
     }
 
+    // when a game is over the message depends the passed value
     gameOver(msg) {
         const overLay = document.querySelector('#overlay');
         const h1 = document.querySelector('#game-over-message');
