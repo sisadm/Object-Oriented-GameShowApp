@@ -1,0 +1,30 @@
+/* Phrase */
+.letter {
+  font-size: var(--font-size-medium);
+  height: 65px;
+  width: 65px;
+  padding: 20px 1px 0 1px;
+  margin-right: 2px;
+  color: transparent;
+  background: var(--color-neutral-light);
+  border-radius: 5px;
+}
+
+.space {
+  width: 15px;
+}
+
+.show {
+  color: #fff;
+  background-color: #4ac0d5;
+  font-size: 20px;
+  height: 65px;
+  width: 65px;
+  padding: 20px 1px 0 1px;
+  margin-right: 2px;
+  border-radius: 5px;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+}
+
+/*# sourceMappingURL=phrase.css.map */
