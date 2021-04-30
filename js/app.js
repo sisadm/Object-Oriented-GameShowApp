@@ -5,7 +5,7 @@ let newGame;
 
 
 overlay.addEventListener('click', (e) => {
-    if(e.target.tagName == 'BUTTON') {
+    if(e.target.tagName == 'BUTTON' || 'SPAN') { // -> also need SPAN because Z-index is bigger 
 
         // check the user finish a game and want a new one.
         if(e.target.classList.contains('reset-game')){
