@@ -70,12 +70,15 @@ class Game {
     // if miss one lose 1 health. (change the img src and +1 for missed)
     removeLife() {
         const hearth = document.querySelectorAll('#scoreboard li img');
-        if(this.missed == 4) {
-            this.gameOver('loss');
-        } else {
-            hearth[this.missed].src = 'images/lostHeart.png';
-            this.missed += 1;
-        }
+        setTimeout(() => {  // => we need to add this because the keys animation still see when the game is end plus syncronized with wrong class animation 
+            if(this.missed == 4) {
+                this.gameOver('loss');
+            } else {
+                hearth[this.missed].src = 'images/lostHeart.png';
+                this.missed += 1;
+            }
+        }, 1000);
+        
     }
 
     // check the phrase letter numbers is equal with correct letters
