@@ -6,20 +6,15 @@
   }
   
   .chosen {
-    transition: background-color 2s ease-in;
-    background-color: #3a3f58;
+    animation: shake 1s ease-in-out;
+    @include transition(#fff, #3a3f58, .9s);   
     border-radius: 5px;
     font-size: $font-medium;
-    color: #FFFFFF;
   }
   
   .wrong {
     animation: shake 1s ease-in-out;
-    transition-delay: 1.1s;
-    transition: background-color;
-    
-    background-color: #f7a964;
-    color: #FFFFFF;
+    @include transition(#fff, #f7a964, .9s);
   }
   
   .btn__reset {

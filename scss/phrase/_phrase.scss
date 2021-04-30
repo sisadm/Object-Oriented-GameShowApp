@@ -18,8 +18,7 @@
   
   
   .show {
-    color: #fff;
-    background-color: #4ac0d5;
+    @include transition(#fff, #4ac0d5, 1s);
     font-size: 20px;
     height: 65px;
     width: 65px;
