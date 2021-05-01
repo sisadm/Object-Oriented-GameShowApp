@@ -103,6 +103,7 @@ body {
   flex-direction: column;
   display: flex;
   height: 100vh;
+  background: #7499a0;
 }
 
 li, ol, ul {
@@ -114,10 +115,12 @@ h2 {
   margin: 0.5em;
   text-transform: uppercase;
   font-size: 60px;
+  color: #F7E8DF;
 }
 
 h1 {
   font-size: 30px;
+  margin: 0 auto;
 }
 
 .key {
@@ -126,22 +129,101 @@ h1 {
   padding: 0.5rem 1rem;
   font-size: 20px;
   border: 1px solid transparent;
-  color: #37474F;
-  background-color: #E5E5E5;
+  color: #1D434B;
+  background-color: #F7E8DF;
   border-radius: 5px;
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  max-height: 900px;
+  text-align: center;
+}
+
+.section {
+  width: 100%;
+  padding: 10px;
+}
+
+#phrase ul li {
+  margin-top: 15px;
+}
+
+/* Overlay */
+#overlay {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  color: #FFF;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 5px;
+}
+
+.title {
+  color: #F7E8DF;
+}
+
+.start {
+  background-color: #181818;
+}
+
+.start a {
+  color: #fff;
+}
+
+.win {
+  background-color: #78CF82;
+}
+
+.lose {
+  background-color: #2d0404;
+}
+
+/* Keyboard */
+.keyrow {
+  display: flex;
+  justify-content: center;
+}
+
+.chosen {
+  animation: shake 1s ease-in-out;
+  transition: color ease-in-out, background-color ease-in-out;
+  transition-delay: 0.9s;
+  color: #fff;
+  background-color: #1A3C43;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.wrong {
+  animation: shake 1s ease-in-out;
+  transition: color ease-in-out, background-color ease-in-out;
+  transition-delay: 0.9s;
+  color: #fff;
+  background-color: #EC4A2F;
+}
+
 #btn__reset {
   position: relative;
+  padding: 16px;
+  margin: 50px auto;
+  font-size: 17px;
   width: 200px;
   height: 50px;
-  margin: 0 auto;
   border-radius: 25px;
   border: none;
   background-color: #D2D2D2;
+  cursor: pointer;
 }
 #btn__reset .cover {
   content: " ";
@@ -173,112 +255,6 @@ h1 {
   animation: pulseTo 2s ease-in-out infinite;
 }
 
-.main-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 100%;
-  max-height: 900px;
-  text-align: center;
-}
-
-.section {
-  width: 100%;
-  padding: 10px;
-}
-
-#phrase ul li {
-  margin-top: 15px;
-}
-
-/* Title */
-.header {
-  color: #3a3f58;
-}
-
-/* Overlay */
-#overlay {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  color: #FFFFFF;
-  justify-content: center;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  border-radius: 5px;
-}
-
-.title {
-  color: #F7E8DF;
-}
-
-.start {
-  background-color: #181818;
-}
-
-.start a {
-  color: #fff;
-}
-
-.win {
-  background-color: #78CF82;
-}
-
-.win a {
-  color: #78CF82;
-}
-
-.lose {
-  background-color: #f5785f;
-}
-
-.lose a {
-  color: #D94545;
-}
-
-/* Keyboard */
-.keyrow {
-  display: flex;
-  justify-content: center;
-}
-
-.chosen {
-  animation: shake 1s ease-in-out;
-  transition: color ease-in-out, background-color ease-in-out;
-  transition-delay: 0.9s;
-  color: #fff;
-  background-color: #3a3f58;
-  border-radius: 5px;
-  font-size: 20px;
-}
-
-.wrong {
-  animation: shake 1s ease-in-out;
-  transition: color ease-in-out, background-color ease-in-out;
-  transition-delay: 0.9s;
-  color: #fff;
-  background-color: #f7a964;
-}
-
-.btn__reset {
-  padding: 16px;
-  margin: 50px auto;
-  background: #f7a964;
-  border-radius: 5px;
-  font-size: 20px;
-  cursor: pointer;
-  border-bottom: solid 4px rgba(0, 0, 0, 0.3);
-  border-right: solid 3px rgba(0, 0, 0, 0.3);
-}
-
-.btn__reset:active {
-  padding: 14px 16px 16px 14px;
-  border-bottom: solid 4px rgba(0, 0, 0, 0);
-  border-right: solid 3px rgba(0, 0, 0, 0);
-}
-
 /* Phrase */
 .letter {
   font-size: 20px;
@@ -299,7 +275,7 @@ h1 {
   transition: color ease-in-out, background-color ease-in-out;
   transition-delay: 1s;
   color: #fff;
-  background-color: #4ac0d5;
+  background-color: #1D434B;
   font-size: 20px;
   height: 65px;
   width: 65px;
