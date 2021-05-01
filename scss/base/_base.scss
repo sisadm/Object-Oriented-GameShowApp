@@ -12,6 +12,7 @@
     flex-direction: column;
     display: flex;
     height: 100vh;
+    background: $color-netural;
   }
   
   li, ol, ul {
@@ -23,11 +24,12 @@
     margin: .5em;
     text-transform: uppercase;
     font-size: $font-large;
+    color: $color-keys-light;
   }
   
   h1 {
     font-size: 30px;
-
+    margin: 0 auto;
   }
   
   .key {
@@ -43,57 +45,6 @@
     -o-transition: $transition;
     transition: $transition;
   }
-  
-
-  #btn__reset {
-    position: relative;
-    width: 200px;
-    height: 50px;
-    margin: 0 auto;
-    border-radius: 25px;
-    border: none;
-    background-color: $color-netural-light;
-    
-      
-
-      .cover {
-        content: ' ';
-        width: 30%;
-        background-color: #f5785f;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        border-radius: 25px;
-        z-index: 1;
-      }
-
-      .text {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        margin: 0 auto;
-        text-align: center;
-        z-index: 10;
-      }
-
-      // hover effect
-      &:hover {
-        animation: bgColorChange 2s ease-in-out infinite;
-
-        > .text {
-          animation: colorChange 2s ease-in-out infinite
-        }
-
-        > .cover {
-          animation: pulseTo 2s ease-in-out infinite;
-        }
-
-      }
-  }
-
-  
   
   .main-container {
     display: flex;
@@ -113,19 +64,13 @@
     margin-top: 15px;
   }
   
-  /* Title */
-  
-  .header {
-    color: #3a3f58;
-  }
-  
   /* Overlay */
 
 #overlay {
     display: flex;
     flex-direction: column;
     position: fixed;
-    color: #FFFFFF;
+    color: #FFF;
     justify-content: center;
     top: 0;
     bottom: 0;
@@ -135,7 +80,7 @@
   }
   
   .title {
-    color: #F7E8DF;
+    color: $color-keys-light;
   }
   
   .start {
@@ -150,14 +95,6 @@
     background-color: $color-win;
   }
   
-  .win a {
-    color: $color-win;
-  }
-  
   .lose {
-    background-color: #f5785f;
-  }
-  
-  .lose a {
-    color: $color-lose;
+    background-color: $color-lose;
   }
