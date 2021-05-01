@@ -7,29 +7,63 @@
   
   .chosen {
     animation: shake 1s ease-in-out;
-    @include transition(#fff, #3a3f58, .9s);   
+    @include transition(#fff, $color-chosen, .9s);   
     border-radius: 5px;
     font-size: $font-medium;
   }
   
   .wrong {
     animation: shake 1s ease-in-out;
-    @include transition(#fff, #f7a964, .9s);
+    @include transition(#fff, $color-wrong, .9s);
   }
   
-  .btn__reset {
+
+  #btn__reset {
+    position: relative;
     padding: 16px;
     margin: 50px auto;
-    background: #f7a964;
-    border-radius: 5px;
-    font-size: 20px;
+    font-size: 17px;
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    background-color: $color-netural-light;
     cursor: pointer;
-    border-bottom: solid 4px rgba(0, 0, 0, .3);
-    border-right: solid 3px rgba(0, 0, 0, .3)
-  }
-  
-  .btn__reset:active {
-    padding: 14px 16px 16px 14px;
-    border-bottom: solid 4px rgba(0, 0, 0, 0);
-    border-right: solid 3px rgba(0, 0, 0, 0);
+      
+
+      .cover {
+        content: ' ';
+        width: 30%;
+        background-color: #f5785f;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 25px;
+        z-index: 1;
+      }
+
+      .text {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0 auto;
+        text-align: center;
+        z-index: 10;
+      }
+
+      // hover effect
+      &:hover {
+        animation: bgColorChange 2s ease-in-out infinite;
+
+        > .text {
+          animation: colorChange 2s ease-in-out infinite
+        }
+
+        > .cover {
+          animation: pulseTo 2s ease-in-out infinite;
+        }
+
+      }
   }
