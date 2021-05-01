@@ -94,7 +94,7 @@ class Game {
     gameOver(msg) {
         const overLay = document.querySelector('#overlay');
         const h1 = document.querySelector('#game-over-message');
-        const startBtn = document.querySelector('#overlay button');
+        const startBtn = document.querySelector('#overlay .text');
         overLay.style.display = 'block'
         if(msg == 'win') {
             overLay.classList.add('win');
