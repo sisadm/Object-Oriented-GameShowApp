@@ -72,7 +72,7 @@ class Game {
         const hearth = document.querySelectorAll('#scoreboard li img');
         setTimeout(() => {  // => we need to add this because the keys animation still see when the game is end plus syncronized with wrong class animation 
             if(this.missed == 4) {
-                this.gameOver('loss');
+                this.gameOver('lose');
             } else {
                 hearth[this.missed].src = 'images/lostHeart.png';
                 this.missed += 1;
@@ -100,7 +100,7 @@ class Game {
             overLay.classList.add('win');
             h1.innerHTML = 'Awesome, you are win. Greate Job!'; 
         } else {
-            overLay.classList.add('loss');
+            overLay.classList.add('lose');
             h1.innerHTML = "Oh no, you lost. Let's try it again."; 
         }
         startBtn.innerHTML = "Restart Game";
