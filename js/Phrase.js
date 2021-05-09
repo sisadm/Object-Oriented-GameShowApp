@@ -16,20 +16,16 @@ class Phrase {
         }
     }
 
-    // check the passed value is in the Phrase if yes change class from hide to show
-    checkLetter(btn){
+    // check the passed value is in the Phrase 
+    checkLetter(letter){
 
-        for(let i = 0; i < this.phrase.length; i++) {
-            if(this.phrase[i] == btn) {
-                this.showMatchedLetters(document.querySelectorAll('#phrase li')[i]);  
+        for(let i = 0; i < this.phrase.length; i++){
+            console.log(this.phrase[i])
+            if(letter == this.phrase[i]){
+                return true;
             }
         }
-
-        // for (const li of document.querySelectorAll('#phrase li')) {
-        //     if(li.textContent == btn){
-        //         this.showMatchedLetters(li);  
-        //     }
-        // }
+        return false;
     }
 
     // class change.
@@ -37,9 +33,6 @@ class Phrase {
         letter.classList.remove('hide');
         letter.classList.add('show');
     }
-
-
-
-
-
 }
+
+
