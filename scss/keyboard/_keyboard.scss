@@ -1,0 +1,69 @@
+/* Keyboard */
+
+.keyrow {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .chosen {
+    animation: shake 1s ease-in-out;
+    @include transition(#fff, $color-chosen, .9s);   
+    border-radius: 5px;
+    font-size: $font-medium;
+  }
+  
+  .wrong {
+    animation: shake 1s ease-in-out;
+    @include transition(#fff, $color-wrong, .9s);
+  }
+  
+
+  #btn__reset {
+    position: relative;
+    padding: 16px;
+    margin: 50px auto;
+    font-size: 17px;
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    background-color: $color-netural-light;
+    cursor: pointer;
+      
+
+      .cover {
+        content: ' ';
+        width: 30%;
+        background-color: #f5785f;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 25px;
+        z-index: 1;
+      }
+
+      .text {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0 auto;
+        text-align: center;
+        z-index: 10;
+      }
+
+      // hover effect
+      &:hover {
+        animation: bgColorChange 2s ease-in-out infinite;
+
+        > .text {
+          animation: colorChange 2s ease-in-out infinite
+        }
+
+        > .cover {
+          animation: pulseTo 2s ease-in-out infinite;
+        }
+
+      }
+  }
