@@ -1,26 +1,33 @@
 class Game {
     constructor() {
         this.missed = 0;
-        this.phrase = ['i am never at home on Sundays',
-                        'the river stole the gods',
-                        'love is not like pizza',
-                        'i am a living furnace',
-                        'so long and thanks for the fish',
-                        'the book is in front of the table'];
+        this.phrase = {
+                        1: new Phrase('i am never at home on Sundays'),
+                        2: new Phrase('the river stole the gods'),
+                        3: new Phrase('love is not like pizza'),
+                        4: new Phrase('i am a living furnace'),
+                        5: new Phrase('so long and thanks for the fish'),
+                        6: new Phrase('the book is in front of the table')};
         this.activePhrase = null;
     }
 
     // hide overlay, choose a random phrase from this.phrase after display it.
     startGame(){
-        document.querySelector('#overlay').style.display = 'none';
+        //document.querySelector('#overlay').style.display = 'none';
         this.activePhrase = this.getRandomPhrase();
-        let newPhrase = new Phrase(this.activePhrase);
-        newPhrase.addPhraseToDisplay();
+        console.log(this.activePhrase)
+        console.log(Object.values(this.activePhrase).includes('a'));
+        this.activePhrase.addPhraseToDisplay();
+        
+        // this.activePhrase = this.getRandomPhrase();
+        // console.log(this.missed);
+        // let newPhrase = new Phrase(this.activePhrase);
+        // this.activePhrase.addPhraseToDisplay();
     }
 
     // get random phrase
     getRandomPhrase() {
-        return this.phrase[Math.floor(Math.random()* this.phrase.length)];
+        return this.phrase[(Math.floor(Math.random()* Object.keys(this.phrase).length) + 1)];
     }
 
     // buttons interaction with the random Phrase
@@ -28,7 +35,6 @@ class Game {
         // const phrase = Array.from(document.querySelectorAll('#phrase li'));
         // const phraseLetters = phrase.map(i => i.textContent); // separete text from the Li
         const NewPheaseClass = new Phrase (this.activePhrase);
-        const arrayPhrase = this.activePhrase.split('');
         const liPhrase = document.querySelectorAll('#phrase li');
         
                 
@@ -93,4 +99,3 @@ class Game {
         startBtn.classList.add('reset-game');
     }
 }
-
