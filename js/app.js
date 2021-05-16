@@ -46,10 +46,15 @@ overlay.addEventListener('click', (e) => {
 })
 
 body.addEventListener('keyup', (e) => {
-
+    
     // without this if statement you can type when a game is not started so error message pop up 
     if(overlay.style.display == 'none') { 
-        newGame.handleInteraction(e.key, 'keyUp');
+        let key = 'which' in e ? e.which : e.keyCode;
+        if(key <= 90 && key >= 48){
+            console.log(e.key)
+            newGame.handleInteraction(e, 'keyUp');
+        }
+        
     }
     
 })
