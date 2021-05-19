@@ -71,12 +71,12 @@ class Game {
                         key.classList.add('wrong');
                     } 
                 }
-                this.removeLife();    
+                setTimeout(() => this.removeLife(), 1700);
             }
             else {
                 console.log(target);
                 target.classList.add('wrong');
-                this.removeLife();
+                setTimeout(() => this.removeLife(), 1700);
             }
             
         }                
@@ -95,9 +95,8 @@ class Game {
     checkForWin(){
         const letterClass = document.querySelectorAll('.letter').length;
         const showClass = document.querySelectorAll('.show').length;
-        if(letterClass == showClass) {
-            return true;
-        }
+        (letterClass == showClass) ? true : false;
+        
     }
 
     gameOver(msg) {
