@@ -2,7 +2,7 @@ class Game {
     constructor() {
         this.missed = 0;
         this.phrase = {
-                        1: new Phrase('i am never at home on Sundays'),
+                        1: new Phrase('i am never at home on sundays'),
                         2: new Phrase('the river stole the gods'),
                         3: new Phrase('love is not like pizza'),
                         4: new Phrase('i am a living furnace'),
@@ -28,40 +28,55 @@ class Game {
         return this.phrase[(Math.floor(Math.random()* Object.keys(this.phrase).length) + 1)];
     }
 
-    // buttons interaction with the random Phrase
+    // buttons interaction with the Phrase
     handleInteraction(target, choose){
         let text = (choose == "click") ? target.innerHTML : target.key;
         console.log(text);
         const liPhrase = document.querySelectorAll('#phrase li');
         let liKeys = document.querySelectorAll('#qwerty button');
         
-        if(this.activePhrase.checkLetter(text) ){ // if true 
+        if(this.activePhrase.checkLetter(text) ){ // if the letter is exist 
 
+            // with click
             if(choose == 'click') { 
                 target.classList.add('chosen');
                 for(const li of liPhrase) {
                     if(li.innerText == text) {
                         this.activePhrase.showMatchedLetters(li);
                     }
-                }
-                
-                this.checkForWin()
+                }    
+                if(this.checkForWin()) setTimeout( () => this.gameOver('win'), 1700);
             }
-            if(choose == 'keyup') {
+
+            // with keyUp
+            if(choose == 'keyUp') {
                 for(const key of liKeys){
-                    console.log(key);
-                    return (key.innerText == text ? this.activePhrase.showMatchedLetters(key) : false);
+                    if(text == key.innerText){
+                        key.classList.add('chosen');
+                    } 
                 }
+                for(const li of liPhrase) {
+                    if(li.innerText == text) {
+                        this.activePhrase.showMatchedLetters(li);
+                    }
+                }
+                if(this.checkForWin()) setTimeout( () => this.gameOver('win'), 1700);
             }
             
-        } else {
-            if(choose == 'keyup') {
-
+        }
+        else {
+            if(choose == 'keyUp') {
+                for(const key of liKeys){
+                    if(text == key.innerText){
+                        key.classList.add('wrong');
+                    } 
+                }
+                this.removeLife();    
             }
             else {
                 console.log(target);
                 target.classList.add('wrong');
-                this.removeLife()
+                this.removeLife();
             }
             
         }                
@@ -81,7 +96,7 @@ class Game {
         const letterClass = document.querySelectorAll('.letter').length;
         const showClass = document.querySelectorAll('.show').length;
         if(letterClass == showClass) {
-            this.gameOver('win');
+            return true;
         }
     }
 
