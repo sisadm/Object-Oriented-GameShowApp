@@ -18,7 +18,6 @@ class Phrase {
 
     // check the passed value is in the Phrase 
     checkLetter(letter){
-        console.log(letter)
         for(let i = 0; i < this.phrase.length; i++){
             if(letter == this.phrase[i]){
                 return true;

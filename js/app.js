@@ -10,7 +10,6 @@ overlay.addEventListener('click', (e) => {
 
         // check the user finish a game and want a new one.
         if(startButton.classList.contains('reset-game')){
-            console.log('have it');
             const phraseLi = document.querySelectorAll('#phrase li');
             const hearthImg = document.querySelectorAll('#scoreboard img');
             const qwertyBtn = document.querySelectorAll('#qwerty button');

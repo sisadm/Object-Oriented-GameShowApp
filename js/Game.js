@@ -31,7 +31,6 @@ class Game {
     // buttons interaction with the Phrase
     handleInteraction(target, choose){
         let text = (choose == "click") ? target.innerHTML : target.key;
-        console.log(text);
         const liPhrase = document.querySelectorAll('#phrase li');
         let liKeys = document.querySelectorAll('#qwerty button');
         
