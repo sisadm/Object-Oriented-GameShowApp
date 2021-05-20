@@ -17,6 +17,9 @@ overlay.addEventListener('click', (e) => {
             // remove class which added when game is end
             startButton.classList.remove('reset-game');
 
+            // overlay class remove
+            (overlay.classList.contains('loss') ? overlay.classList.remove('loss') : overlay.classList.remove('win'));
+
             // clear old phrase Li
             for(let li of phraseLi) {
                 li.remove();
