@@ -1,6 +1,7 @@
 const overlay = document.querySelector('#overlay');
 const qwerty = document.querySelector('#qwerty');
 const body = document.querySelector('body');
+const startButton = overlay.querySelector('button');
 let newGame;
 
 
@@ -8,13 +9,14 @@ overlay.addEventListener('click', (e) => {
     if(e.target.tagName == 'BUTTON' || 'SPAN') { // -> also need SPAN because Z-index is bigger 
 
         // check the user finish a game and want a new one.
-        if(e.target.classList.contains('reset-game')){
+        if(startButton.classList.contains('reset-game')){
+            console.log('have it');
             const phraseLi = document.querySelectorAll('#phrase li');
             const hearthImg = document.querySelectorAll('#scoreboard img');
             const qwertyBtn = document.querySelectorAll('#qwerty button');
 
             // remove class which added when game is end
-            e.target.classList.remove('reset-game');
+            startButton.classList.remove('reset-game');
 
             // clear old phrase Li
             for(let li of phraseLi) {
