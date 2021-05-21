@@ -41,7 +41,7 @@ overlay.addEventListener('click', (e) => {
         if(e.target.textContent == 'Start Game' || e.target.textContent == 'Restart Game') {
             newGame = new Game();
             if(e.target.textContent == 'Restart Game') {
-                setTimeout(()=> newGame.startGame(), 300)  // the 300 mSec help to not see when reset the classes
+                setTimeout(()=> newGame.startGame(), 500)  // the 300 mSec help to not see when reset the classes
             } else {
                 newGame.startGame();
             }   
