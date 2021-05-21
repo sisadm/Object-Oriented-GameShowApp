@@ -81,7 +81,8 @@ class Game {
     removeLife() {
         const hearth = document.querySelectorAll('#scoreboard li img');
         if(this.missed == 4) {
-            this.gameOver('loss');
+            hearth[this.missed].src = 'images/lostHeart.png';
+            setTimeout(() => this.gameOver('loss'), 500);
         } else {
             hearth[this.missed].src = 'images/lostHeart.png';
             this.missed += 1;
