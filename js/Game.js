@@ -16,11 +16,6 @@ class Game {
         document.querySelector('#overlay').style.display = 'none';
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
-        
-        // this.activePhrase = this.getRandomPhrase();
-        // console.log(this.missed);
-        // let newPhrase = new Phrase(this.activePhrase);
-        // this.activePhrase.addPhraseToDisplay();
     }
 
     // get random phrase
@@ -63,6 +58,8 @@ class Game {
             }
             
         }
+
+        // setTimeout() wait for letter animation
         else {
             if(choose == 'keyUp') {
                 for(const key of liKeys){
@@ -70,17 +67,17 @@ class Game {
                         key.classList.add('wrong');
                     } 
                 }
-                setTimeout(() => this.removeLife(), 1700);
+                setTimeout(() => this.removeLife(), 900);
             }
             else {
-                console.log(target);
                 target.classList.add('wrong');
-                setTimeout(() => this.removeLife(), 1700);
+                setTimeout(() => this.removeLife(), 900);
             }
             
         }                
     }
 
+    // change a hearth img source when you miss a letter
     removeLife() {
         const hearth = document.querySelectorAll('#scoreboard li img');
         if(this.missed == 4) {
@@ -91,13 +88,14 @@ class Game {
         }
     }
 
+    // check the letter numbers is equal with the right chosen letters
     checkForWin(){
         const letterClass = document.querySelectorAll('.letter').length;
         const showClass = document.querySelectorAll('.show').length;
         (letterClass == showClass) ? true : false;
-        
     }
 
+    // gameOver with different end win or loss
     gameOver(msg) {
         const overLay = document.querySelector('#overlay');
         const h1 = document.querySelector('#game-over-message');
