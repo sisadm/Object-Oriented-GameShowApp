@@ -6,7 +6,7 @@ let newGame;
 
 
 overlay.addEventListener('click', (e) => {
-    if(e.target.tagName == 'BUTTON' || 'SPAN') { // -> also need SPAN because Z-index is bigger 
+    if(e.target.tagName == 'BUTTON' || 'SPAN') { // -> also need SPAN because Z-index is bigger then Button
 
         // check the user finish a game and want a new one.
         if(startButton.classList.contains('reset-game')){
@@ -55,7 +55,6 @@ body.addEventListener('keyup', (e) => {
     if(overlay.style.display == 'none') { 
         let key = 'which' in e ? e.which : e.keyCode;
         if(key <= 90 && key >= 48){
-            console.log(e.key)
             newGame.handleInteraction(e, 'keyUp');
         }
         
