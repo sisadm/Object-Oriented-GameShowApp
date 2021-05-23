@@ -7,3 +7,4 @@ Style changes :
     - color change
     - add animation for Start Button and Letters
     - hover effects
+    - setTimeout function to synchronize with   animation
