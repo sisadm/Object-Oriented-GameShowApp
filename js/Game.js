@@ -1,13 +1,13 @@
 class Game {
     constructor() {
         this.missed = 0;
-        this.phrase = {
-                        1: new Phrase('i am never at home on sundays'),
-                        2: new Phrase('the river stole the gods'),
-                        3: new Phrase('love is not like pizza'),
-                        4: new Phrase('i am a living furnace'),
-                        5: new Phrase('so long and thanks for the fish'),
-                        6: new Phrase('the book is in front of the table')};
+        this.phrase = [
+                        new Phrase('i am never at home on sundays'),
+                        new Phrase('the river stole the gods'),
+                        new Phrase('love is not like pizza'),
+                        new Phrase('i am a living furnace'),
+                        new Phrase('so long and thanks for the fish'),
+                        new Phrase('the book is in front of the table')];
         this.activePhrase = null;
     }
 
@@ -20,7 +20,9 @@ class Game {
 
     // get random phrase
     getRandomPhrase() {
-        return this.phrase[(Math.floor(Math.random()* Object.keys(this.phrase).length) + 1)];
+        console.log(this.phrase[(Math.floor(Math.random()* Object.keys(this.phrase).length))]);
+        return this.phrase[(Math.floor(Math.random()* Object.keys(this.phrase).length)  )];
+        
     }
 
     // buttons interaction with the Phrase
@@ -39,7 +41,7 @@ class Game {
                         this.activePhrase.showMatchedLetters(li);
                     }
                 }    
-                if(this.checkForWin()) setTimeout( () => this.gameOver('win'), 1700);
+                
             }
 
             // with keyUp
@@ -54,7 +56,7 @@ class Game {
                         this.activePhrase.showMatchedLetters(li);
                     }
                 }
-                if(this.checkForWin()) setTimeout( () => this.gameOver('win'), 1700);
+                //if(this.checkForWin() == true) setTimeout( () => this.gameOver('win'), 1700);
             }
             
         }
@@ -74,7 +76,11 @@ class Game {
                 setTimeout(() => this.removeLife(), 900);
             }
             
-        }                
+        }
+        
+        if(this.checkForWin()) {
+            setTimeout(() => this.gameOver('win'), 1300);
+        }                      
     }
 
     // change a hearth img source when you miss a letter
@@ -93,7 +99,10 @@ class Game {
     checkForWin(){
         const letterClass = document.querySelectorAll('.letter').length;
         const showClass = document.querySelectorAll('.show').length;
-        (letterClass == showClass) ? true : false;
+        console.log(letterClass == showClass);
+        if(letterClass == showClass) {
+            return true;
+        }
     }
 
     // gameOver with different end win or loss
