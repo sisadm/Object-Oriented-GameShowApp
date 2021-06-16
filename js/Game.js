@@ -20,7 +20,6 @@ class Game {
 
     // get random phrase
     getRandomPhrase() {
-        console.log(this.phrase[(Math.floor(Math.random()* Object.keys(this.phrase).length))]);
         return this.phrase[(Math.floor(Math.random()* Object.keys(this.phrase).length)  )];
         
     }
@@ -99,7 +98,6 @@ class Game {
     checkForWin(){
         const letterClass = document.querySelectorAll('.letter').length;
         const showClass = document.querySelectorAll('.show').length;
-        console.log(letterClass == showClass);
         if(letterClass == showClass) {
             return true;
         }
