@@ -55,7 +55,6 @@ class Game {
                         this.activePhrase.showMatchedLetters(li);
                     }
                 }
-                //if(this.checkForWin() == true) setTimeout( () => this.gameOver('win'), 1700);
             }
             
         }
@@ -64,11 +63,12 @@ class Game {
         else {
             if(choose == 'keyUp') {
                 for(const key of liKeys){
-                    if(text == key.innerText){
+                    if(text == key.innerText && !key.classList.contains('wrong')){
                         key.classList.add('wrong');
+                        setTimeout(() => this.removeLife(), 900);
                     } 
                 }
-                setTimeout(() => this.removeLife(), 900);
+                
             }
             else {
                 target.classList.add('wrong');
@@ -87,7 +87,7 @@ class Game {
         const hearth = document.querySelectorAll('#scoreboard li img');
         if(this.missed == 4) {
             hearth[this.missed].src = 'images/lostHeart.png';
-            setTimeout(() => this.gameOver('loss'), 500);
+            setTimeout(() => this.gameOver('lose'), 500);
         } else {
             hearth[this.missed].src = 'images/lostHeart.png';
             this.missed += 1;
@@ -103,7 +103,7 @@ class Game {
         }
     }
 
-    // gameOver with different end win or loss
+    // gameOver with different end win or lose
     gameOver(msg) {
         const overLay = document.querySelector('#overlay');
         const h1 = document.querySelector('#game-over-message');
@@ -113,7 +113,7 @@ class Game {
             overLay.classList.add('win');
             h1.innerHTML = 'Awesome, you are win. Greate Job!'; 
         } else {
-            overLay.classList.add('loss');
+            overLay.classList.add('lose');
             h1.innerHTML = "Oh no, you lost. Let's try it again."; 
         }
 
